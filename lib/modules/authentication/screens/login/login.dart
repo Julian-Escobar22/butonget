@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final ChangeLanguageController changeLanguageController =
+        Get.put(ChangeLanguageController());
 
-    final ChangeLanguageController changeLanguageController = Get.put(ChangeLanguageController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text(AppLocalizations.of(context).appTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -22,20 +23,25 @@ class LoginScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context).loginText('textLogin')),
-            // Text(AppText.textLogin),
-            // Obx(() => Text(changeLanguageController.locale.value == 'es' ? AppText.textLogin : AppText.textLogin)),
+            Text(
+              AppLocalizations.of(context).loginText('textLogin'),
+              style: TextStyle(fontSize: 18.0),
+            ),
             ElevatedButton(
               onPressed: () {
                 changeLanguageController.changeLanguage(
                   changeLanguageController.locale.value == 'es' ? 'en' : 'es',
                 );
-              }, 
-              child: Text(AppLocalizations.of(context).loginText('buttonLogin')))
+              },
+              child: Text(
+                AppLocalizations.of(context).loginText('buttonLogin'),
+                style: TextStyle(fontSize: 16.0),
+              ),
+            ),
           ],
-        )
-        //Text('Este es un ejemplo de cambiar idioma'),
+        ),
       ),
     );
   }
