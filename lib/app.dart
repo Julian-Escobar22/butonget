@@ -35,7 +35,15 @@ class App extends StatelessWidget {
       // locale: const Locale('en', ''),
     
       locale: changeLanguageController.locale.value == 'es' ? const Locale('en') : const Locale('es'),
-      // >> flutter gen-l10n
+      builder: (context, child) {
+        return GestureDetector(
+          onTap: () {
+            // Cambiar idioma cuando se presiona en cualquier lugar de la pantalla
+            changeLanguageController.changeLanguage(changeLanguageController.locale.value == 'es' ? 'en' : 'es');
+          },
+          child: child,
+        );
+      },
     );
   }
 }
