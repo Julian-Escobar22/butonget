@@ -28,8 +28,8 @@ class App extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('es'), // Spanish
-        Locale('en'), // English
+        Locale('es'),
+        Locale('en'),
       ],
       locale: changeLanguageController.locale.value == 'es'
           ? const Locale('en')
