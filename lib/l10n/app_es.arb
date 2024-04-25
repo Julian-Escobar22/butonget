@@ -1,0 +1,6 @@
+{
+  "appTitle": "Mi Aplicación",
+  "content": "Hola",
+  "onboarding": "{name, select, onBoardingTitle1{Elija su producto} other{}}",
+  "loginText": "{name, select, textLogin{Este es un ejemplo de cambiar idioma} buttonLogin{Cambiar idioma} other{}}"
+}
